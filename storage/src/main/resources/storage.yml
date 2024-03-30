@@ -1,0 +1,55 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_log: true
+        format_sql: true
+    show-sql: true
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: debug
+---
+spring.config.activate.on-profile: local
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+---
+spring.config.activate.on-profile: dev
+
+spring:
+  jpa:
+    datasource:
+      url: jdbc:mysql://${DATASOURCE_URL}
+      username: ${DATASOURCE_USERNAME}
+      password: ${DATASOURCE_PASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        query:
+          in_clause_parameter_padding: true
+          plan_cache_max_size: 128
+          plan_parameter_metadata_max_size: 32
+    open-in-view: false
+
+

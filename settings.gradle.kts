@@ -1,8 +1,10 @@
 rootProject.name = "tj-spring-boilerplate"
 
 include(
-    "core-api",
-    "domain",
+    ":core-api",
+    ":domain",
+    ":storage",
+    ":modules:pagination",
 )
 
 pluginManagement {
