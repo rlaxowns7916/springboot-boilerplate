@@ -1,4 +1,9 @@
-rootProject.name= "tj-spring-boilerplate"
+rootProject.name = "tj-spring-boilerplate"
+
+include(
+    "core-api",
+    "domain",
+)
 
 pluginManagement {
     val springBootVersion: String by settings
