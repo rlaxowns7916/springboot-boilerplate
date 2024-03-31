@@ -9,7 +9,6 @@ plugins {
     id("io.spring.dependency-management")
     id("org.jlleitschuh.gradle.ktlint")
 }
-
 java.sourceCompatibility = JavaVersion.valueOf("VERSION_${property("javaVersion")}")
 
 allprojects {
@@ -32,7 +31,7 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudDependenciesVersion")}")
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${project.property("springCloudDependenciesVersion")}")
         }
     }
 
@@ -47,7 +46,6 @@ subprojects {
     }
 
     tasks.getByName("bootJar") {
-        version = System.getenv("VERSION") ?: project.version
         enabled = false
     }
 
@@ -55,11 +53,13 @@ subprojects {
         enabled = true
     }
 
-    java.sourceCompatibility = JavaVersion.valueOf("VERSION_${property("javaVersion")}")
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
             jvmTarget = "${project.property("javaVersion")}"
         }
+    }
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }

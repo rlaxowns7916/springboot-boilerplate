@@ -1,5 +1,4 @@
 tasks.getByName("bootJar") {
-    version = System.getenv("VERSION") ?: project.version
     enabled = true
 }
 
@@ -9,6 +8,7 @@ tasks.getByName("jar") {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":modules:pagination"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
