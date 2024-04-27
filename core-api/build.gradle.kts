@@ -7,7 +7,9 @@ tasks.getByName("jar") {
 }
 
 dependencies {
-    runtimeOnly(":storage")
+    runtimeOnly(project(":storage"))
+    runtimeOnly(project(":modules:lock"))
+
     implementation(project(":domain"))
     implementation(project(":modules:pagination"))
 

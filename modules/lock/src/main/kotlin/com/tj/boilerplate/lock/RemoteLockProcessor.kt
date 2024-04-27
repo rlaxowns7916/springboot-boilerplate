@@ -26,7 +26,6 @@ class RemoteLockProcessor(
             if (!isLockAcquired) {
                 throw RuntimeException("[Lock][Fail] (cause: Failed to Acquire Lock)")
             }
-
             return block()
         } finally {
             /**

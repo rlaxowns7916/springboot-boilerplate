@@ -27,3 +27,5 @@ jobs:
         run: chmod +x gradlew
       - name: Lint Check
         run: ./gradlew ktlintCheck
+      - name: Test
+#        run: ./gradlew test
