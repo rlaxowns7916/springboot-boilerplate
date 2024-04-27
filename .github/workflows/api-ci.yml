@@ -28,4 +28,4 @@ jobs:
       - name: Lint Check
         run: ./gradlew ktlintCheck
       - name: Test
-#        run: ./gradlew test
+        run: ./gradlew test
