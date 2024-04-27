@@ -7,6 +7,7 @@ tasks.getByName("jar") {
 }
 
 dependencies {
+    runtimeOnly(":storage")
     implementation(project(":domain"))
     implementation(project(":modules:pagination"))
 

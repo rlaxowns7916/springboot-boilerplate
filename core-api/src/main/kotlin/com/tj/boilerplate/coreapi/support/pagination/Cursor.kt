@@ -1,3 +1,4 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
-annotation class Cursor()
+@Target(AnnotationTarget.VALUE_PARAMETER)
+annotation class Cursor

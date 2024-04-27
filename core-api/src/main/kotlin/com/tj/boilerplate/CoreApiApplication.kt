@@ -1,4 +1,4 @@
-package com.tj.boilerplate.coreapi
+package com.tj.boilerplate
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

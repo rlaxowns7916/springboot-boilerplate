@@ -6,4 +6,6 @@ dependencies {
 
     api("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
