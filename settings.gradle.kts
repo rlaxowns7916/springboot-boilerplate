@@ -5,6 +5,7 @@ include(
     "domain",
     "storage",
     "modules:pagination",
+    "modules:lock"
 )
 
 pluginManagement {

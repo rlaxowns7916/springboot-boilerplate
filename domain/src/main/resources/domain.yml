@@ -5,3 +5,4 @@ spring:
   config:
     import:
       - storage.yml
+      - lock.yml

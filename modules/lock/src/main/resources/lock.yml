@@ -1,0 +1,4 @@
+redis:
+  lock:
+    server: ${REDIS_LOCK_HOST}
+    port: ${REDIS_LOCK_PORT}
