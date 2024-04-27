@@ -14,7 +14,7 @@ import java.time.LocalDateTime
 abstract class BaseEntity(
     @Id
     @GeneratedValue
-    val id: Long? = null,
+    val id: Long = 0L,
     @CreationTimestamp
     val createdAt: LocalDateTime? = null,
     @UpdateTimestamp
