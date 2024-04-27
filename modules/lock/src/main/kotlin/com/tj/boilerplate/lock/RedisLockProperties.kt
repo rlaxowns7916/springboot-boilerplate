@@ -6,5 +6,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 data class RedisLockProperties(
     val host: String,
     val port: Int,
-    val password: String
+    val password: String,
 )

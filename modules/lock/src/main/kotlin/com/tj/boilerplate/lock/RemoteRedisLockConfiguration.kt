@@ -10,9 +10,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @EnableConfigurationProperties(value = [RedisLockProperties::class])
 class RemoteRedisLockConfiguration(
-    private val properties: RedisLockProperties
+    private val properties: RedisLockProperties,
 ) {
-
     @Bean
     fun redissonClient(): RedissonClient {
         val redisHost = "redis://${properties.host}:${properties.port}"

@@ -4,8 +4,9 @@ include(
     "core-api",
     "domain",
     "storage",
+    ":common:profile",
     "modules:pagination",
-    "modules:lock"
+    "modules:lock",
 )
 
 pluginManagement {
