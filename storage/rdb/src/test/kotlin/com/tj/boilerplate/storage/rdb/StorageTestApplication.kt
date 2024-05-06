@@ -1,0 +1,8 @@
+package com.tj.boilerplate.storage.rdb
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
+
+@SpringBootApplication
+@ConfigurationPropertiesScan
+class StorageTestApplication

@@ -2,4 +2,4 @@ spring:
   profiles:
     active: local
   application:
-    name: redis-lock
+    name: redis-storage

@@ -7,6 +7,8 @@ include(
     ":common:profile",
     "modules:pagination",
     "modules:lock",
+    "storage:rdb",
+    "storage:redis",
 )
 
 pluginManagement {

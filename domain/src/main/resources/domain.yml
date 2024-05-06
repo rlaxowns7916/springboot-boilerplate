@@ -4,5 +4,6 @@ spring.profiles.active: local
 spring:
   config:
     import:
-      - storage.yml
       - lock.yml
+      - storage-rdb.yml
+      - storage-redis.yml
