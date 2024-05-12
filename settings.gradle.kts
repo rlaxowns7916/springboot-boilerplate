@@ -6,6 +6,7 @@ include(
     "storage",
     ":common:profile",
     "modules:pagination",
+    "modules:local-cache",
     "modules:lock",
     "storage:rdb",
     "storage:redis",

@@ -10,6 +10,7 @@ dependencies {
     runtimeOnly(project(":storage:rdb"))
     runtimeOnly(project(":storage:redis"))
     runtimeOnly(project(":modules:lock"))
+    runtimeOnly(project(":modules:local-cache"))
 
     implementation(project(":domain"))
     implementation(project(":modules:pagination"))
