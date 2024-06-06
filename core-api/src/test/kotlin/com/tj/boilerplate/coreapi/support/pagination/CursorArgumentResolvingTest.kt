@@ -17,13 +17,13 @@ class CursorArgumentResolvingTest {
     @Test
     fun `limit와_cursor를_올바르게_Resolving_할_수_있다`() {
         mockMvc.get("/cursor-pagination-test") {
-            param("limit", "10")
+            param("size", "10")
             param("cursor", "123")
         }.andDo {
             print()
         }.andExpect {
             status { is2xxSuccessful() }
-            jsonPath("$.limit") { value(10) }
+            jsonPath("$.size") { value(10) }
             jsonPath("$.nextCursor") { value(123) }
         }
     }

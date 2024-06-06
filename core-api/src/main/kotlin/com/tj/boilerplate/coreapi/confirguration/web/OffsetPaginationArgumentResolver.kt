@@ -1,7 +1,7 @@
 package com.tj.boilerplate.coreapi.confirguration.web
 
-import com.tj.boilerplate.coreapi.support.pagination.Cursor
-import com.tj.boilerplate.coreapi.support.pagination.CursorPaginationRequest
+import com.tj.boilerplate.coreapi.support.pagination.Offset
+import com.tj.boilerplate.coreapi.support.pagination.OffsetPaginationRequest
 import org.springframework.core.MethodParameter
 import org.springframework.stereotype.Component
 import org.springframework.web.bind.support.WebDataBinderFactory
@@ -10,10 +10,10 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
 
 @Component
-class CursorPaginationArgumentResolver : HandlerMethodArgumentResolver {
+class OffsetPaginationArgumentResolver : HandlerMethodArgumentResolver {
     override fun supportsParameter(parameter: MethodParameter): Boolean {
-        return parameter.hasParameterAnnotation(Cursor::class.java) &&
-            parameter.parameterType == CursorPaginationRequest::class.java
+        return parameter.hasParameterAnnotation(Offset::class.java) &&
+            parameter.parameterType == OffsetPaginationRequest::class.java
     }
 
     override fun resolveArgument(
@@ -21,13 +21,13 @@ class CursorPaginationArgumentResolver : HandlerMethodArgumentResolver {
         mavContainer: ModelAndViewContainer?,
         webRequest: NativeWebRequest,
         binderFactory: WebDataBinderFactory?,
-    ): Any {
-        val limit = webRequest.getParameter(CursorPaginationRequest::size.name)?.toIntOrNull()
-        val nextCursor = webRequest.getParameter(CursorPaginationRequest::cursor.name)?.toLongOrNull()
+    ): Any? {
+        val page = webRequest.getParameter(OffsetPaginationRequest::page.name)?.toIntOrNull()
+        val size = webRequest.getParameter(OffsetPaginationRequest::size.name)?.toIntOrNull()
 
-        return CursorPaginationRequest(
-            size = limit,
-            cursor = nextCursor,
+        return OffsetPaginationRequest(
+            page = page,
+            size = size,
         )
     }
 }

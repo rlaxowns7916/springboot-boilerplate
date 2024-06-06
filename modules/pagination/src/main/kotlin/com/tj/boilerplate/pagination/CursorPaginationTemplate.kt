@@ -5,14 +5,12 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 
 object CursorPaginationTemplate {
-    private const val DEFAULT_LIMIT = 100
-
     fun <T> query(
         param: CursorPaginationParam,
         query: (cursor: Long, pageable: Pageable) -> List<T>,
         cursoringKey: (T) -> Long,
     ): CursorPage<T> {
-        val size = param.limit ?: DEFAULT_LIMIT
+        val size = param.size
         val nextCursor = param.nextCursor ?: 0
         val pageable = PageRequest.of(0, size + 1, Sort.by("id").ascending())
 

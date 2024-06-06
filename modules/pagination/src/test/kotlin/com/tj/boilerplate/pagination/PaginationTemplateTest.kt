@@ -10,8 +10,8 @@ class PaginationTemplateTest {
     fun `결과가_지정한_Size보다_작다면_nextCursor는_null이다`() {
         val param =
             CursorPaginationParam(
-                limit = 100,
-                nextCursor = null,
+                size = 100,
+                nextCursor = 0L,
             )
         val query = { _: Long, _: Pageable ->
             listOf(
@@ -31,8 +31,8 @@ class PaginationTemplateTest {
         val size = 100
         val param =
             CursorPaginationParam(
-                limit = size,
-                nextCursor = null,
+                size = size,
+                nextCursor = 0L,
             )
         val query = { _: Long, _: Pageable ->
             (1..size + 1).map { SampleModel(it.toLong()) }
