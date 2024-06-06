@@ -19,6 +19,7 @@ class OffsetArgumentResolvingTest {
         mockMvc.get("/offset-pagination-test") {
             param("page", "0")
             param("size", "200")
+            param("sorts", "id:asc", "name:desc", "createdAt:asc")
         }.andDo {
             print()
         }.andExpect {

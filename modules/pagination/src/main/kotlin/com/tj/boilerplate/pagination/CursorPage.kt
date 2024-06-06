@@ -6,6 +6,15 @@ data class CursorPage<T>(
     val size: Int,
     val nextCursor: Long?,
 ) {
+    fun <R> map(mapper: (T) -> R): CursorPage<R> {
+        return CursorPage(
+            data = data.map(mapper),
+            hasMore = hasMore,
+            size = size,
+            nextCursor = nextCursor,
+        )
+    }
+
     companion object {
         fun <T> empty(): CursorPage<T> {
             return CursorPage(

@@ -24,10 +24,12 @@ class OffsetPaginationArgumentResolver : HandlerMethodArgumentResolver {
     ): Any? {
         val page = webRequest.getParameter(OffsetPaginationRequest::page.name)?.toIntOrNull()
         val size = webRequest.getParameter(OffsetPaginationRequest::size.name)?.toIntOrNull()
+        val sorts = webRequest.getParameterValues(OffsetPaginationRequest::sorts.name)?.toList() ?: emptyList()
 
         return OffsetPaginationRequest(
             page = page,
             size = size,
+            sorts = sorts,
         )
     }
 }
