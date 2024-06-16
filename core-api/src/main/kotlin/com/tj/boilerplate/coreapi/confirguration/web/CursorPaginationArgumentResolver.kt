@@ -22,11 +22,11 @@ class CursorPaginationArgumentResolver : HandlerMethodArgumentResolver {
         webRequest: NativeWebRequest,
         binderFactory: WebDataBinderFactory?,
     ): Any {
-        val limit = webRequest.getParameter(CursorPaginationRequest::limit.name)?.toIntOrNull()
-        val nextCursor = webRequest.getParameter(CursorPaginationRequest::cursor.name)
+        val limit = webRequest.getParameter(CursorPaginationRequest::size.name)?.toIntOrNull()
+        val nextCursor = webRequest.getParameter(CursorPaginationRequest::cursor.name)?.toLongOrNull()
 
         return CursorPaginationRequest(
-            limit = limit,
+            size = limit,
             cursor = nextCursor,
         )
     }
