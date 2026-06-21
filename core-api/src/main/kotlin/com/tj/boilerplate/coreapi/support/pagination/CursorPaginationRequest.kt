@@ -1,6 +1,6 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
-import com.tj.boilerplate.pagination.CursorPaginationParam
+import com.tj.boilerplate.modules.pagination.CursorPaginationParam
 
 data class CursorPaginationRequest(
     val size: Int?,

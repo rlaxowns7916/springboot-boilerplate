@@ -1,4 +1,4 @@
-package com.tj.boilerplate.pagination
+package com.tj.boilerplate.modules.pagination
 
 data class CursorPage<T>(
     val data: List<T>,

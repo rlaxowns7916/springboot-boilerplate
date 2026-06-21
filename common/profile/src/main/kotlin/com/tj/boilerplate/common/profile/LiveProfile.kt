@@ -1,7 +1,7 @@
-package com.tj.boilerplate.profile
+package com.tj.boilerplate.common.profile
 
 import org.springframework.context.annotation.Profile
 
-@Profile("dev")
+@Profile("live")
 @Target(AnnotationTarget.CLASS)
-annotation class DevProfile
+annotation class LiveProfile

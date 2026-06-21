@@ -1,4 +1,4 @@
-package com.tj.boilerplate.pagination
+package com.tj.boilerplate.modules.pagination
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

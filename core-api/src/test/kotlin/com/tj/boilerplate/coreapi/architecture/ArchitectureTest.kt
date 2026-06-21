@@ -27,9 +27,9 @@ class ArchitectureTest {
             .layer(CLIENTS)
             .definedBy("$ROOT_PACKAGE.clients..")
             .layer(MODULES)
-            .definedBy("$ROOT_PACKAGE.modules..", "$ROOT_PACKAGE.lock..", "$ROOT_PACKAGE.pagination..")
+            .definedBy("$ROOT_PACKAGE.modules..")
             .layer(COMMON)
-            .definedBy("$ROOT_PACKAGE.common..", "$ROOT_PACKAGE.profile..")
+            .definedBy("$ROOT_PACKAGE.common..")
             // 진입 모듈은 최상위 — 아무도 의존하지 못한다
             .whereLayer(CORE_API)
             .mayNotBeAccessedByAnyLayer()

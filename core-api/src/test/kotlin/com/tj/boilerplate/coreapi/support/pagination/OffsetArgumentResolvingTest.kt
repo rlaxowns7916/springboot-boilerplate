@@ -1,7 +1,7 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
 import com.tj.boilerplate.coreapi.confirguration.web.OffsetPaginationArgumentResolver
-import com.tj.boilerplate.pagination.OffsetPaginationParam
+import com.tj.boilerplate.modules.pagination.OffsetPaginationParam
 import org.junit.jupiter.api.Test
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.setup.MockMvcBuilders

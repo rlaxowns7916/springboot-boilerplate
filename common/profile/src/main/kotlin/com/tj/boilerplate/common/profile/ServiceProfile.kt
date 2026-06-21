@@ -1,4 +1,4 @@
-package com.tj.boilerplate.profile
+package com.tj.boilerplate.common.profile
 
 internal enum class ServiceProfile(
     val priority: Int,

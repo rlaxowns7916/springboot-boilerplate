@@ -1,4 +1,4 @@
-package com.tj.boilerplate.pagination
+package com.tj.boilerplate.modules.pagination
 
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort

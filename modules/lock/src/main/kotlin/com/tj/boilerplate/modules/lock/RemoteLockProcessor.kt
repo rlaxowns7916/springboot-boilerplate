@@ -1,4 +1,4 @@
-package com.tj.boilerplate.lock
+package com.tj.boilerplate.modules.lock
 
 import org.redisson.api.RedissonClient
 import org.springframework.beans.factory.annotation.Value

@@ -1,4 +1,4 @@
-package com.tj.boilerplate.lock
+package com.tj.boilerplate.modules.lock
 
 import org.springframework.core.io.ClassPathResource
 import org.springframework.util.FileCopyUtils

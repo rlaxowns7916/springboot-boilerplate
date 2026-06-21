@@ -1,7 +1,7 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
-import com.tj.boilerplate.pagination.OffsetPaginationParam
-import com.tj.boilerplate.pagination.OffsetPaginationSort
+import com.tj.boilerplate.modules.pagination.OffsetPaginationParam
+import com.tj.boilerplate.modules.pagination.OffsetPaginationSort
 import java.util.Locale
 
 data class OffsetPaginationRequest(

@@ -1,4 +1,4 @@
-package com.tj.boilerplate.pagination
+package com.tj.boilerplate.modules.pagination
 
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable

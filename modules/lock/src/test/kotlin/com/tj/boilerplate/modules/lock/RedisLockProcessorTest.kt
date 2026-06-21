@@ -1,4 +1,4 @@
-package com.tj.boilerplate.lock
+package com.tj.boilerplate.modules.lock
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

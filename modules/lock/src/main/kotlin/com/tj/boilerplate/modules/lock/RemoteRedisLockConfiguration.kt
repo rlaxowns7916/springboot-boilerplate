@@ -1,7 +1,7 @@
-package com.tj.boilerplate.lock
+package com.tj.boilerplate.modules.lock
 
-import com.tj.boilerplate.profile.DevProfile
-import com.tj.boilerplate.profile.LiveProfile
+import com.tj.boilerplate.common.profile.DevProfile
+import com.tj.boilerplate.common.profile.LiveProfile
 import org.redisson.Redisson
 import org.redisson.api.RedissonClient
 import org.redisson.config.Config

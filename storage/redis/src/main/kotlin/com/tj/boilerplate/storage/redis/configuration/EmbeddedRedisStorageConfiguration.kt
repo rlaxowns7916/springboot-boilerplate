@@ -1,6 +1,6 @@
 package com.tj.boilerplate.storage.redis.configuration
 
-import com.tj.boilerplate.profile.LocalProfile
+import com.tj.boilerplate.common.profile.LocalProfile
 import jakarta.annotation.PostConstruct
 import jakarta.annotation.PreDestroy
 import org.slf4j.LoggerFactory

@@ -1,4 +1,4 @@
-package com.tj.boilerplate.pagination
+package com.tj.boilerplate.modules.pagination
 
 sealed interface OffsetPaginationSort {
     data class ASC(

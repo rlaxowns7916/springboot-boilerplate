@@ -1,4 +1,4 @@
-package com.tj.boilerplate.profile.phase
+package com.tj.boilerplate.common.profile.phase
 
 import org.junit.jupiter.api.Tag
 import org.springframework.boot.test.context.SpringBootTest

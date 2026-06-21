@@ -1,4 +1,4 @@
-package com.tj.boilerplate.profile
+package com.tj.boilerplate.common.profile
 
 import io.mockk.every
 import io.mockk.mockk

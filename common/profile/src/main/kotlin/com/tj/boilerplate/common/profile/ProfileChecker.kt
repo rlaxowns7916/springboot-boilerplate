@@ -1,4 +1,4 @@
-package com.tj.boilerplate.profile
+package com.tj.boilerplate.common.profile
 
 import org.springframework.core.env.Environment
 import org.springframework.stereotype.Component

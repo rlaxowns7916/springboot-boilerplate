@@ -1,7 +1,7 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
 import com.tj.boilerplate.coreapi.confirguration.web.CursorPaginationArgumentResolver
-import com.tj.boilerplate.pagination.CursorPaginationParam
+import com.tj.boilerplate.modules.pagination.CursorPaginationParam
 import org.junit.jupiter.api.Test
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
