@@ -6,3 +6,16 @@ spring:
     import:
       - domain.yml
       - lock.yml
+
+springdoc:
+  swagger-ui:
+    enabled: true
+
+---
+spring.config.activate.on-profile: live
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
