@@ -17,4 +17,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${property("openApiVersion")}")
+
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.3.0")
 }
