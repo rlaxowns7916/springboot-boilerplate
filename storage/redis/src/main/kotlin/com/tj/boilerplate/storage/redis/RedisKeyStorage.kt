@@ -13,7 +13,7 @@ class RedisKeyStorage(
         key: String,
         timeout: Duration,
     ): Boolean {
-        return redisTemplate.expire(key, timeout)!!
+        return requireNotNull(redisTemplate.expire(key, timeout)) { "redis expire returned null" }
     }
 
     fun ttl(
