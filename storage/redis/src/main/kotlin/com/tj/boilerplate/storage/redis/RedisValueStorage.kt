@@ -10,9 +10,7 @@ import java.time.Duration
 class RedisValueStorage(
     private val redisTemplate: RedisTemplate<String, String>,
 ) {
-    fun getStringValue(key: String): String? {
-        return redisTemplate.opsForValue().get(key)
-    }
+    fun getStringValue(key: String): String? = redisTemplate.opsForValue().get(key)
 
     fun set(
         key: String,
@@ -26,9 +24,7 @@ class RedisValueStorage(
         }
     }
 
-    fun delete(key: String): Boolean {
-        return redisTemplate.delete(key)
-    }
+    fun delete(key: String): Boolean = redisTemplate.delete(key)
 }
 
 inline fun <reified T> RedisValueStorage.get(key: String): T? {

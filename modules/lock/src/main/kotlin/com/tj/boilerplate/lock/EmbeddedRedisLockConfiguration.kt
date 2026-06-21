@@ -22,7 +22,8 @@ class EmbeddedRedisLockConfiguration {
     fun redissonClient(): RedissonClient {
         val redisHost = "redis://127.0.0.1:$port"
         val config = Config()
-        config.useSingleServer()
+        config
+            .useSingleServer()
             .apply {
                 address = redisHost
                 connectionPoolSize = 10

@@ -10,8 +10,6 @@ internal enum class ServiceProfile(
     ;
 
     companion object {
-        fun fromYmlValue(from: String): ServiceProfile {
-            return entries.first { it.ymlValue == from }
-        }
+        fun fromYmlValue(from: String): ServiceProfile = entries.first { it.ymlValue == from }
     }
 }

@@ -6,7 +6,9 @@ import org.springframework.transaction.TransactionDefinition
 import org.springframework.transaction.support.TransactionTemplate
 
 @Component
-class TransactionProcessor(transactionManager: PlatformTransactionManager) {
+class TransactionProcessor(
+    transactionManager: PlatformTransactionManager,
+) {
     private val executor = TransactionTemplate(transactionManager)
     private val readOnlyExecutor =
         TransactionTemplate(transactionManager).apply {
@@ -17,15 +19,9 @@ class TransactionProcessor(transactionManager: PlatformTransactionManager) {
             propagationBehavior = TransactionDefinition.PROPAGATION_REQUIRES_NEW
         }
 
-    fun <T> execute(block: () -> T?): T? {
-        return executor.execute { block() }
-    }
+    fun <T> execute(block: () -> T?): T? = executor.execute { block() }
 
-    fun <T> executeInReadOnly(block: () -> T?): T? {
-        return readOnlyExecutor.execute { block() }
-    }
+    fun <T> executeInReadOnly(block: () -> T?): T? = readOnlyExecutor.execute { block() }
 
-    fun <T> executeInRequiresNewPropagation(block: () -> T?): T? {
-        return requiresNewExecutor.execute { block() }
-    }
+    fun <T> executeInRequiresNewPropagation(block: () -> T?): T? = requiresNewExecutor.execute { block() }
 }

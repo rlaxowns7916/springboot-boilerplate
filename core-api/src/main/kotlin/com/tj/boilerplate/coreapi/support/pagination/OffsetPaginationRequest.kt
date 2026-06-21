@@ -9,13 +9,12 @@ data class OffsetPaginationRequest(
     val size: Int?,
     val sorts: List<String>,
 ) {
-    fun toParam(): OffsetPaginationParam {
-        return OffsetPaginationParam(
+    fun toParam(): OffsetPaginationParam =
+        OffsetPaginationParam(
             page = page ?: DEFAULT_PAGE,
             size = size ?: DEFAULT_SIZE,
             sorts = toOffsetPaginationSort(),
         )
-    }
 
     private fun toOffsetPaginationSort(): List<OffsetPaginationSort> {
         return sorts.mapNotNull {

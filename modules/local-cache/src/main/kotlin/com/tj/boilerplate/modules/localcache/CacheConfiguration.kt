@@ -12,20 +12,18 @@ import org.springframework.context.annotation.Configuration
 @EnableCaching
 class CacheConfiguration {
     @Bean
-    fun caffeineCaches(): List<CaffeineCache> {
-        return CacheType.entries.map { cache ->
+    fun caffeineCaches(): List<CaffeineCache> =
+        CacheType.entries.map { cache ->
             CaffeineCache(
                 cache.cacheManagerName,
-                Caffeine.newBuilder()
+                Caffeine
+                    .newBuilder()
                     .expireAfterWrite(cache.ttl, cache.timeUnit)
                     .maximumSize(cache.maximumSize)
                     .build(),
             )
         }
-    }
 
     @Bean
-    fun cacheManager(caffeineCaches: List<CaffeineCache>): CacheManager {
-        return SimpleCacheManager().apply { setCaches(caffeineCaches) }
-    }
+    fun cacheManager(caffeineCaches: List<CaffeineCache>): CacheManager = SimpleCacheManager().apply { setCaches(caffeineCaches) }
 }

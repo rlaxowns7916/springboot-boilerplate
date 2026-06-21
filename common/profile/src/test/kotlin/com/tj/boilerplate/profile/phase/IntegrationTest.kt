@@ -5,4 +5,4 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @Tag("integration")
 @SpringBootTest
-annotation class IntegrationTest()
+annotation class IntegrationTest

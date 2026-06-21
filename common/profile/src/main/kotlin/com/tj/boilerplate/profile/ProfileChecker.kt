@@ -7,13 +7,9 @@ import org.springframework.stereotype.Component
 class ProfileChecker(
     private val env: Environment,
 ) {
-    fun isDevProfile(): Boolean {
-        return getCurrentProfile() in listOf(ServiceProfile.LOCAL, ServiceProfile.DEV)
-    }
+    fun isDevProfile(): Boolean = getCurrentProfile() in listOf(ServiceProfile.LOCAL, ServiceProfile.DEV)
 
-    fun isLiveProfile(): Boolean {
-        return getCurrentProfile() == ServiceProfile.LIVE
-    }
+    fun isLiveProfile(): Boolean = getCurrentProfile() == ServiceProfile.LIVE
 
     internal fun getCurrentProfile(): ServiceProfile {
         val activeProfiles = env.activeProfiles

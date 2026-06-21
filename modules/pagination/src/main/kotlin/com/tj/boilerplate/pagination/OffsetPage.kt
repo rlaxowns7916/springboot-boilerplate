@@ -9,15 +9,14 @@ class OffsetPage<T>(
     val data: List<T>,
     val hasMore: Boolean,
 ) {
-    fun <R> map(mapper: (T) -> R): OffsetPage<R> {
-        return OffsetPage(
+    fun <R> map(mapper: (T) -> R): OffsetPage<R> =
+        OffsetPage(
             size = size,
             page = page,
             data = data.map(mapper),
             totalCount = totalCount,
             hasMore = hasMore,
         )
-    }
     constructor(page: Page<T>) : this(
         data = page.content,
         hasMore = page.hasNext(),

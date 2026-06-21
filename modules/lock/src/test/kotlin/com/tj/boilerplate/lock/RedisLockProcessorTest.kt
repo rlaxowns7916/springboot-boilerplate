@@ -25,13 +25,14 @@ class RedisLockProcessorTest {
                     initialize()
                 }
 
-        (1..taskSize).map {
-            CompletableFuture.supplyAsync({
-                sut.tryWithLock(
-                    key = "RedisLockConcurrencyTest",
-                ) { counter += 1 }
-            }, taskExecutor)
-        }.map { it.join() }
+        (1..taskSize)
+            .map {
+                CompletableFuture.supplyAsync({
+                    sut.tryWithLock(
+                        key = "RedisLockConcurrencyTest",
+                    ) { counter += 1 }
+                }, taskExecutor)
+            }.map { it.join() }
 
         assertThat(counter).isEqualTo(taskSize)
     }

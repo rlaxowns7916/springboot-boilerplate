@@ -20,7 +20,8 @@ class RemoteRedisLockConfiguration(
     fun redissonClient(): RedissonClient {
         val redisHost = "redis://${properties.host}:${properties.port}"
         val config = Config()
-        config.useSingleServer()
+        config
+            .useSingleServer()
             .apply {
                 address = redisHost
                 password = properties.password

@@ -11,10 +11,9 @@ import org.springframework.web.method.support.ModelAndViewContainer
 
 @Component
 class CursorPaginationArgumentResolver : HandlerMethodArgumentResolver {
-    override fun supportsParameter(parameter: MethodParameter): Boolean {
-        return parameter.hasParameterAnnotation(Cursor::class.java) &&
+    override fun supportsParameter(parameter: MethodParameter): Boolean =
+        parameter.hasParameterAnnotation(Cursor::class.java) &&
             parameter.parameterType == CursorPaginationRequest::class.java
-    }
 
     override fun resolveArgument(
         parameter: MethodParameter,

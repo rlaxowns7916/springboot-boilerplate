@@ -31,9 +31,7 @@ object EmbeddedRedisExtensions {
         return redisServer
     }
 
-    fun isArmMac(): Boolean {
-        return System.getProperty("os.arch") == "aarch64" && System.getProperty("os.name") == "Mac OS X"
-    }
+    fun isArmMac(): Boolean = System.getProperty("os.arch") == "aarch64" && System.getProperty("os.name") == "Mac OS X"
 
     private fun extractResourceAsFile(
         resourceName: String,
@@ -43,7 +41,9 @@ object EmbeddedRedisExtensions {
         require(resource.exists()) { "Resource not found: $resourceName" }
 
         val tempFile: File =
-            Files.createTempFile("embedded-redis-$port", ".tmp").toFile()
+            Files
+                .createTempFile("embedded-redis-$port", ".tmp")
+                .toFile()
                 .apply {
                     setExecutable(true)
                     deleteOnExit()
