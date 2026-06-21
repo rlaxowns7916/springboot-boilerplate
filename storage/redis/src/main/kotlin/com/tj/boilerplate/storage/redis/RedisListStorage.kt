@@ -25,14 +25,14 @@ class RedisListStorage(
         key: String,
         value: String,
     ) {
-        redisTemplate.opsForList().leftPush(key, value)!!
+        redisTemplate.opsForList().leftPush(key, value)
     }
 
     fun rPush(
         key: String,
         value: String,
     ) {
-        redisTemplate.opsForList().rightPush(key, value)!!
+        redisTemplate.opsForList().rightPush(key, value)
     }
 }
 
