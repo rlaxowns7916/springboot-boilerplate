@@ -9,7 +9,5 @@ import org.springframework.data.redis.core.StringRedisTemplate
 @Configuration
 class RedisTemplateConfiguration {
     @Bean
-    fun redisTemplate(connectionFactory: LettuceConnectionFactory): RedisTemplate<String, String> {
-        return StringRedisTemplate(connectionFactory)
-    }
+    fun redisTemplate(connectionFactory: LettuceConnectionFactory): RedisTemplate<String, String> = StringRedisTemplate(connectionFactory)
 }

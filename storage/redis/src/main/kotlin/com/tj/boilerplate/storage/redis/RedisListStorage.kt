@@ -9,17 +9,11 @@ import org.springframework.stereotype.Component
 class RedisListStorage(
     private val redisTemplate: RedisTemplate<String, String>,
 ) {
-    fun range(key: String): List<String> {
-        return redisTemplate.opsForList().range(key, 0, -1) ?: emptyList()
-    }
+    fun range(key: String): List<String> = redisTemplate.opsForList().range(key, 0, -1) ?: emptyList()
 
-    fun lPop(key: String): String? {
-        return redisTemplate.opsForList().leftPop(key)
-    }
+    fun lPop(key: String): String? = redisTemplate.opsForList().leftPop(key)
 
-    fun rPop(key: String): String? {
-        return redisTemplate.opsForList().rightPop(key)
-    }
+    fun rPop(key: String): String? = redisTemplate.opsForList().rightPop(key)
 
     fun lPush(
         key: String,

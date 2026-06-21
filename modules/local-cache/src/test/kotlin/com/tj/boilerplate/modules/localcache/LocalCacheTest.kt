@@ -32,9 +32,7 @@ class LocalCacheTest {
 class TestService(
     val repo: TestRepository,
 ) {
-    fun execute(id: Long): String {
-        return repo.findById(id)
-    }
+    fun execute(id: Long): String = repo.findById(id)
 }
 
 @Repository

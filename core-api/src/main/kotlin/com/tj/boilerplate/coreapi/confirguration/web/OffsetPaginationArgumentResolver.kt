@@ -11,10 +11,9 @@ import org.springframework.web.method.support.ModelAndViewContainer
 
 @Component
 class OffsetPaginationArgumentResolver : HandlerMethodArgumentResolver {
-    override fun supportsParameter(parameter: MethodParameter): Boolean {
-        return parameter.hasParameterAnnotation(Offset::class.java) &&
+    override fun supportsParameter(parameter: MethodParameter): Boolean =
+        parameter.hasParameterAnnotation(Offset::class.java) &&
             parameter.parameterType == OffsetPaginationRequest::class.java
-    }
 
     override fun resolveArgument(
         parameter: MethodParameter,

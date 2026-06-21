@@ -1,0 +1,7 @@
+package com.tj.boilerplate.common.profile
+
+import org.springframework.context.annotation.Profile
+
+@Profile("local")
+@Target(AnnotationTarget.CLASS)
+annotation class LocalProfile

@@ -1,7 +1,7 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
-import com.tj.boilerplate.pagination.OffsetPaginationParam
-import com.tj.boilerplate.pagination.OffsetPaginationSort
+import com.tj.boilerplate.modules.pagination.OffsetPaginationParam
+import com.tj.boilerplate.modules.pagination.OffsetPaginationSort
 import java.util.Locale
 
 data class OffsetPaginationRequest(
@@ -9,13 +9,12 @@ data class OffsetPaginationRequest(
     val size: Int?,
     val sorts: List<String>,
 ) {
-    fun toParam(): OffsetPaginationParam {
-        return OffsetPaginationParam(
+    fun toParam(): OffsetPaginationParam =
+        OffsetPaginationParam(
             page = page ?: DEFAULT_PAGE,
             size = size ?: DEFAULT_SIZE,
             sorts = toOffsetPaginationSort(),
         )
-    }
 
     private fun toOffsetPaginationSort(): List<OffsetPaginationSort> {
         return sorts.mapNotNull {

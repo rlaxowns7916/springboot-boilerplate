@@ -1,4 +1,4 @@
-package com.tj.boilerplate.storage.redis.configuration
+package com.tj.boilerplate.modules.lock
 
 import org.springframework.core.io.ClassPathResource
 import org.springframework.util.FileCopyUtils
@@ -10,7 +10,7 @@ import java.io.InputStreamReader
 import java.nio.file.Files
 
 object EmbeddedRedisExtensions {
-    fun createEmbeddedRedis(
+    fun createArmEmbeddedRedis(
         resourceName: String,
         port: Int,
     ): RedisServer {
@@ -55,14 +55,14 @@ object EmbeddedRedisExtensions {
     }
 
     fun findAvailablePort(): Int {
-        for (port in 30001..60000) {
+        for (port in 10000..30000) {
             val process = executeGrepProcessCommand(port)
             if (!isRunning(process)) {
                 return port
             }
         }
 
-        throw IllegalArgumentException("Not Found Available port: 30001 ~ 60000")
+        throw IllegalArgumentException("Not Found Available port: 10000 ~ 30000")
     }
 
     fun executeGrepProcessCommand(port: Int): Process {

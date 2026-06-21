@@ -1,17 +1,16 @@
 package com.tj.boilerplate.coreapi.support.pagination
 
-import com.tj.boilerplate.pagination.CursorPaginationParam
+import com.tj.boilerplate.modules.pagination.CursorPaginationParam
 
 data class CursorPaginationRequest(
     val size: Int?,
     val cursor: Long?,
 ) {
-    fun toParam(): CursorPaginationParam {
-        return CursorPaginationParam(
+    fun toParam(): CursorPaginationParam =
+        CursorPaginationParam(
             size = size ?: DEFAULT_SIZE,
             nextCursor = cursor ?: DEFAULT_CURSOR,
         )
-    }
 
     companion object {
         private const val DEFAULT_SIZE = 100
