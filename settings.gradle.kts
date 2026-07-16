@@ -10,6 +10,7 @@ include(
     "modules:local-cache",
     "modules:lock",
     "modules:tracing",
+    "modules:crypto",
     "storage:rdb",
     "storage:redis",
 )

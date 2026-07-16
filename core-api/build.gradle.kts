@@ -12,6 +12,8 @@ dependencies {
     runtimeOnly(project(":modules:lock"))
     runtimeOnly(project(":modules:local-cache"))
 
+    runtimeOnly(project(":modules:crypto"))
+
     implementation(project(":common:exception"))
     implementation(project(":domain"))
     implementation(project(":modules:pagination"))
@@ -25,5 +27,7 @@ dependencies {
     implementation("io.micrometer:micrometer-tracing-bridge-brave")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${property("openApiVersion")}")
 
+    // 본 배선은 runtimeOnly(스캔이 런타임 클래스패스에서 집어간다) — 테스트가 Encryptor 타입을 참조하려면 컴파일에도 필요하다
+    testImplementation(project(":modules:crypto"))
     testImplementation("com.tngtech.archunit:archunit-junit5:${property("archunitVersion")}")
 }
