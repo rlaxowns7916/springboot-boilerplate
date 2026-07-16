@@ -11,6 +11,18 @@ springdoc:
   swagger-ui:
     enabled: true
 
+# 로그 상관용 traceId — 항상 sampled(MDC에 traceId 보장). 인바운드 W3C(traceparent)/B3 헤더 존중, 없으면 생성.
+# span export 없이 로그 상관만 쓰므로 probability=1.0의 비용은 무시할 수준이다.
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+    propagation:
+      produce: W3C
+      consume:
+        - W3C
+        - B3
+
 ---
 spring.config.activate.on-profile: live
 

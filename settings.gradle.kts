@@ -9,6 +9,7 @@ include(
     "modules:pagination",
     "modules:local-cache",
     "modules:lock",
+    "modules:tracing",
     "storage:rdb",
     "storage:redis",
 )
