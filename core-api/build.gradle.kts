@@ -12,10 +12,12 @@ dependencies {
     runtimeOnly(project(":modules:lock"))
     runtimeOnly(project(":modules:local-cache"))
 
+    implementation(project(":common:exception"))
     implementation(project(":domain"))
     implementation(project(":modules:pagination"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${property("openApiVersion")}")
 

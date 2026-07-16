@@ -4,6 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses
 import com.tngtech.archunit.core.importer.ClassFileImporter
 import com.tngtech.archunit.core.importer.ImportOption
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses
 import com.tngtech.archunit.library.Architectures.layeredArchitecture
 import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices
 import org.junit.jupiter.api.Test
@@ -72,6 +73,18 @@ class ArchitectureTest {
             .areAssignableTo("org.springframework.data.repository.Repository")
             .should()
             .resideInAPackage("..storage..")
+            .allowEmptyShould(true)
+            .check(importedClasses)
+    }
+
+    @Test
+    fun `common 은 leaf — 다른 레이어를 의존하지 않는다`() {
+        noClasses()
+            .that()
+            .resideInAPackage("$ROOT_PACKAGE.common..")
+            .should()
+            .dependOnClassesThat()
+            .resideInAnyPackage("..coreapi..", "..domain..", "..storage..", "..clients..", "..modules..")
             .allowEmptyShould(true)
             .check(importedClasses)
     }
