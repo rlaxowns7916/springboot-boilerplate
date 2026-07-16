@@ -4,6 +4,7 @@ import com.tngtech.archunit.core.domain.JavaClasses
 import com.tngtech.archunit.core.importer.ClassFileImporter
 import com.tngtech.archunit.core.importer.ImportOption
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses
 import com.tngtech.archunit.library.Architectures.layeredArchitecture
 import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices
 import org.junit.jupiter.api.Test
@@ -42,9 +43,10 @@ class ArchitectureTest {
             // 외부 API 는 진입 측 조율층에서만(domain 의 외부 I/O ❌)
             .whereLayer(CLIENTS)
             .mayOnlyBeAccessedByLayers(CORE_API)
-            // 횡단 기술 기능은 진입 모듈·domain 이 사용(storage·clients 는 ❌)
+            // 횡단 기술 기능은 진입 모듈·domain 에 더해 storage 도 사용한다(컬럼 암복호를 위한 crypto 참조).
+            // clients 는 제외 — 실제 참조가 생길 때 근거와 함께 열어준다(미리 열면 규칙이 아무것도 막지 않는다)
             .whereLayer(MODULES)
-            .mayOnlyBeAccessedByLayers(CORE_API, DOMAIN)
+            .mayOnlyBeAccessedByLayers(CORE_API, DOMAIN, STORAGE)
             // common 은 leaf — 모든 레이어가 참조 가능하나 common 자신은 아무도 의존하지 않는다
             .whereLayer(COMMON)
             .mayOnlyBeAccessedByLayers(CORE_API, DOMAIN, STORAGE, CLIENTS, MODULES)
@@ -72,6 +74,18 @@ class ArchitectureTest {
             .areAssignableTo("org.springframework.data.repository.Repository")
             .should()
             .resideInAPackage("..storage..")
+            .allowEmptyShould(true)
+            .check(importedClasses)
+    }
+
+    @Test
+    fun `common 은 leaf — 다른 레이어를 의존하지 않는다`() {
+        noClasses()
+            .that()
+            .resideInAPackage("$ROOT_PACKAGE.common..")
+            .should()
+            .dependOnClassesThat()
+            .resideInAnyPackage("..coreapi..", "..domain..", "..storage..", "..clients..", "..modules..")
             .allowEmptyShould(true)
             .check(importedClasses)
     }

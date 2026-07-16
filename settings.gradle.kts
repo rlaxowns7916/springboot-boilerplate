@@ -5,9 +5,12 @@ include(
     "domain",
     "storage",
     ":common:profile",
+    ":common:exception",
     "modules:pagination",
     "modules:local-cache",
     "modules:lock",
+    "modules:tracing",
+    "modules:crypto",
     "storage:rdb",
     "storage:redis",
 )

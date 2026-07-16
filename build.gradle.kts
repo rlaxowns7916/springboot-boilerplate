@@ -39,6 +39,9 @@ subprojects {
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("io.github.oshai:kotlin-logging-jvm:${property("kotlinLoggingVersion")}")
+        // slf4j MDC — 로그 상관(traceId) 등 전 모듈 공용. kotlin-logging이 slf4j-api를 컴파일 노출하지 않아 명시
+        implementation("org.slf4j:slf4j-api")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("com.ninja-squad:springmockk:${property("springMockkVersion")}")

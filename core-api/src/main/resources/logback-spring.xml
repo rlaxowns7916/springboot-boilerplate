@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  로그 상관용 traceId를 콘솔 패턴에 명시(%X{traceId}). Micrometer Tracing/Brave가 요청 시 MDC에 traceId를 채운다.
+  Spring Boot 기본 correlation 자동주입에 의존하지 않고 패턴을 고정해, traceId 노출을 명시적으로 보장한다.
+-->
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%X{traceId:-},%X{spanId:-}] [%15.15t] %-40.40logger{39} : %m%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
